@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "HideTabBarController.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"下一个controller隐藏tabbar";
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStylePlain target:self action:@selector(pushNextControl)];
+}
+
+-(void)pushNextControl {
+    HideTabBarController *nextControl = [[HideTabBarController alloc] init];
+    [nextControl hidesBottomBarWhenPushed];
+    [self.navigationController pushViewController:nextControl animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

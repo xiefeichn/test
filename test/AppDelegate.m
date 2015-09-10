@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MyTabBarController.h"
+#import "UMSocial.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [UMSocialData setAppKey:@"55ed892be0f55ac3dd000ae4"];
+    
+    MyTabBarController *tabBarControl = [[MyTabBarController alloc] init];
+    self.window.rootViewController = tabBarControl;
+    
     return YES;
 }
 
